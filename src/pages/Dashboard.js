@@ -9,8 +9,12 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const finishSocialLogin = async () => {
-    const result = await magic.oauth.getRedirectResult();
-    setUser(result);
+    try {
+      const result = await magic.oauth.getRedirectResult();
+      setUser(result);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {
@@ -18,12 +22,16 @@ const Dashboard = () => {
   }, []);
 
   const logout = async () => {
-    await magic.user.logout();
-    navigate("/");
+    try {
+      await magic.user.logout();
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Dashboard</h1>
       {!user && <div>Loading...</div>}
 

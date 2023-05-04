@@ -1,17 +1,25 @@
 import { magic } from "../lib/magic";
+import { FaDiscord } from "react-icons/fa";
 
 const Login = () => {
   const handleSocialLogin = async () => {
-    await magic.oauth.loginWithRedirect({
-      provider: "discord",
-      redirectURI: new URL("/dashboard", window.location.origin).href,
-    });
+    try {
+      await magic.oauth.loginWithRedirect({
+        provider: "discord",
+        redirectURI: new URL("/dashboard", window.location.origin).href,
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h1>Login with Discord</h1>
-      <button onClick={handleSocialLogin}>Discord</button>
+      <button onClick={handleSocialLogin}>
+        <FaDiscord size={"2.5rem"} />
+        Log in with Discord
+      </button>
     </div>
   );
 };
