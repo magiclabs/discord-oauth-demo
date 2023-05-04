@@ -1,15 +1,15 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useState } from "react";
 import { magic } from "../lib/magic";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../lib/UserContext";
 
 const Dashboard = () => {
-  const [user, setUser] = useContext(UserContext);
+  const [user, setUser] = useState();
   const navigate = useNavigate();
 
   const finishSocialLogin = async () => {
     const result = await magic.oauth.getRedirectResult();
     setUser(result);
+    console.log(result);
   };
 
   useEffect(() => {
@@ -24,8 +24,8 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-
-      {user ? <p>User Info:{JSON.stringify(user)}</p> : <div>Loading...</div>}
+      {!user && <div>Loading...</div>}
+      {user && <div>{}</div>}
       <button onClick={logout}>Logout</button>
     </div>
   );
