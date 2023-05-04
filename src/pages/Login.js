@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="container">
       <h1>Login with Discord</h1>
       <button onClick={handleSocialLogin}>
         <FaDiscord size={"2.5rem"} />
