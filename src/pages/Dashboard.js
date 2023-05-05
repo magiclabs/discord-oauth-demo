@@ -36,7 +36,7 @@ const Dashboard = () => {
       {user && (
         <div>
           <h1>Data returned:</h1>
-          <pre className="user-info">{JSON.stringify(user, null, 2)}</pre>
+          <pre className="user-info">{JSON.stringify(user, null, 3)}</pre>
         </div>
       )}
       <button className="logout-button" onClick={logout}>
