@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { magic } from "../lib/magic";
 import { useNavigate } from "react-router-dom";
-import MagicInfo from "../components/MagicInfo";
-import OAuthInfo from "../components/OAuthInfo";
 
 const Dashboard = () => {
   const [user, setUser] = useState();
@@ -12,6 +10,7 @@ const Dashboard = () => {
     try {
       const result = await magic.oauth.getRedirectResult();
       setUser(result);
+      console.log(result);
     } catch (err) {
       console.error(err);
     }
@@ -32,16 +31,17 @@ const Dashboard = () => {
 
   return (
     <div className="container">
-      <h1>Dashboard</h1>
       {!user && <div>Loading...</div>}
 
       {user && (
         <div>
-          <MagicInfo data={user.magic.userMetadata} />
-          <OAuthInfo data={user.oauth} />
+          <h1>Data returned:</h1>
+          <pre className="user-info">{JSON.stringify(user, null, 2)}</pre>
         </div>
       )}
-      <button onClick={logout}>Logout</button>
+      <button className="logout-button" onClick={logout}>
+        Logout
+      </button>
     </div>
   );
 };

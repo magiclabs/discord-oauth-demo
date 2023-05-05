@@ -25,6 +25,11 @@ h1 {
   font-weight: 800;
 }
 
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
 button {
   display: flex;
   justify-content: space-around;
@@ -43,8 +48,22 @@ button {
   line-height: 0;
 }
 
+.logout-button {
+  width: 200px;
+  margin-top: 30px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.user-info {
+  width: 800px;
+  text-align: left;
+  background: #f0f0f0;
+  padding: 25px;
+  border-radius: 10px;
+  overflow-x: scroll;
 }
