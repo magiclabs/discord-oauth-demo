@@ -15,7 +15,7 @@ const Login = () => {
 
   return (
     <div className="container">
-      <h1>Login with Discord</h1>
+      <h1>Magic Auth + Discord</h1>
       <button onClick={handleSocialLogin}>
         <FaDiscord size={"2.5rem"} />
         Log in with Discord

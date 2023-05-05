@@ -23,11 +23,7 @@ body {
 h1 {
   font-size: 4rem;
   font-weight: 800;
-}
-
-h2 {
-  font-size: 3rem;
-  font-weight: 600;
+  margin-bottom: 50px;
 }
 
 button {
@@ -48,9 +44,14 @@ button {
   line-height: 0;
 }
 
+.loading {
+  font-size: 3rem;
+  margin: 30px;
+  font-style: italic;
+}
+
 .logout-button {
   width: 200px;
-  margin-top: 30px;
 }
 
 .container {
@@ -63,6 +64,7 @@ button {
   width: 800px;
   text-align: left;
   background: #f0f0f0;
+  margin: 50px;
   padding: 25px;
   border-radius: 10px;
   overflow-x: scroll;

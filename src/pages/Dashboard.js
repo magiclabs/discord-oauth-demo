@@ -31,7 +31,7 @@ const Dashboard = () => {
 
   return (
     <div className="container">
-      {!user && <div>Loading...</div>}
+      {!user && <div className="loading">Loading...</div>}
 
       {user && (
         <div>
